@@ -1,7 +1,9 @@
 from icalendar import Calendar, Event
-from datetime
+import datetime
 from pytz import UTC # timezone
 import dateutil.parser # Hacky format guesser, returning datetime objects
+
+import scheduler
 
 
 
