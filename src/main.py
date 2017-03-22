@@ -19,7 +19,7 @@ def iCal_from_times_list(times_list, project_name, duration, priority=5):
         event = Event()
         event.add('summary', project_name)
         event.add('dtstart', dateutil.parser(time))
-        event.add('dtend', dateutil.parser(time) + datetime.timedelta(0,0,0,0,60))
+        event.add('dtend', dateutil.parser.parse(time) + datetime.timedelta(0,0,0,0,60))
         event.add('dtstamp', datetime.datetime.now())
         event['uid'] = dateutil.parser(time).isoformat() + '@' + project_name + '/cranki'
         event.add('priority', priority)
