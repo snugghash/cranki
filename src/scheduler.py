@@ -2,13 +2,22 @@ import datetime
 import dateutil.parser # Hacky format guesser, returning datetime objects
 import sys
 
+def multiplicativeInverse(i):
+    return 1-1/i
+
+def linearDistributionFunction(i, sessions):
+    return i/sessions
+
+def powerDistributionFunction(i, power):
+    return 1-1/i**power
+
 """
 Returns intervals in the units of timeLeft, starting from 0, right now.
 """
 def intervals (timeLeft, sessions):
     intervals = []
     for i in range(1,sessions+1):
-        intervals.append(timeLeft * (1-1/i))
+        intervals.append(timeLeft * multiplicativeInverse(i))
     return intervals
 
 def humanIntervals (intervals):
